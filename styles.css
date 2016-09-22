@@ -4,6 +4,16 @@
 /* a { */
 /*     width: 100px; */
 /* } */
+body {
+}
+#page-content {
+    margin: 0 auto;
+}
+#image-gallery {
+    margin: 0 auto;
+    width:100%;
+}
+    
 .close-photo {
     padding-left: 10px;
     color: grey;
@@ -14,7 +24,7 @@
     margin-top: 100px;
 }
 .image-dialog {
-    width: 38%;
+    width: 43%;
     height: 400px;
     margin-left: 20px;
     float: left;
@@ -23,7 +33,8 @@
     position:relative;
 }
 #considered-image {
-    width:400px;
+    /* width:300px; */
+    width:40%;
     float:left;
 }
 #photo-options {
@@ -31,7 +42,6 @@
 }
 #image-steps {
     /* float:right; */
-    //margin-right: 30px;
     padding:10px;
     position: absolute;
     bottom: 0;
@@ -40,4 +50,24 @@
 }
 .step {
     padding:2px;
+}
+
+.image-link {
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* or space-around */
+    /* justify-content: space-around; /\* or space-around *\/ */
+    width: calc(50% - 4px);
+}
+.tiled-image {
+    width:100%;
+    /* width:28%; */
+    /* height: auto; */
+    /* min-width: 300px; */
+    /* display: flex; */
+    /* flex-wrap: wrap; */
+    /* /\* justify-content: space-between; /\\* or space-around *\\/ *\/ */
+    /* justify-content: space-around; /\* or space-around *\/ */
+
 }
