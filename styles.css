@@ -2,8 +2,8 @@
     margin: 0 auto;
 }
 #image-gallery {
-    /* margin: 0 auto; */
-    display:flex;
+    margin: 0 auto;
+    /* display:flex; */
 }
     
 .close-photo {
@@ -44,18 +44,10 @@
     padding:2px;
 }
 
-.image-link {
-    display: flex;
-    flex-wrap: wrap;
-    /* justify-content: space-between; /\* or space-around *\/ */
-    /* justify-content: space-around; /\* or space-around *\/ */
-    width: calc(25% - 4px);
-}
-a:nth-of-type(2n) {
-  margin-right: 0;
-}
 .tiled-image {
-    width:100%;
+    width:calc(25% - 4px);
+    float: left;
+    padding:20px;
     /* width:28%; */
     /* height: auto; */
     /* min-width: 300px; */
