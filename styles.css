@@ -52,6 +52,6 @@
 }
 @media(max-width:750px) {
     .tiled-image {
-    width:calc(50% - 4px);
+        width:calc(50% - 4px);
     }
 }
