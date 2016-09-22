@@ -1,0 +1,43 @@
+/* li { */
+/*     width:200px; */
+/* } */
+/* a { */
+/*     width: 100px; */
+/* } */
+.close-photo {
+    padding-left: 10px;
+    color: grey;
+    top: -50px;
+}
+#image-area {
+    width: 100%;
+    margin-top: 100px;
+}
+.image-dialog {
+    width: 38%;
+    height: 400px;
+    margin-left: 20px;
+    float: left;
+    border: 1px solid rgba(0,0,0,.2);
+    border-radius: 5px;
+    position:relative;
+}
+#considered-image {
+    width:400px;
+    float:left;
+}
+#photo-options {
+    padding:20px;
+}
+#image-steps {
+    /* float:right; */
+    //margin-right: 30px;
+    padding:10px;
+    position: absolute;
+    bottom: 0;
+    border: 1px solid rgba(0,0,0,.2);
+    width:100%;
+}
+.step {
+    padding:2px;
+}

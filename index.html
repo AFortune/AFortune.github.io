@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>Photu picker</title>
+    <link href="node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet"/>
+    <link href="styles.css" rel="stylesheet"/>
+    <!-- <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script> -->
+  </head>
+  <body>
+    <div class="container">
+      <div id="tabs-container">
+        <ul id="photo-tabs" class="nav nav-tabs">
+          <li role="presentation"><a href="#">Photo</a></li>
+          <li id="add-button" role="presentation"><a  href="#">Add Photo +</a></li>
+        </ul>
+      </div>
+      <div id="page-content">
+        <div id="image-area">
+          <img id="considered-image" alt="" src="https://hd.unsplash.com/photo-1470848051974-964b789cb6fa"/>
+
+        <div class="image-dialog">
+          <div id="photo-options">
+            Ultrices vitae, auctor eu augue ut lectus arcu, bibendum. Quam adipiscing vitae proin sagittis, nisl rhoncus mattis rhoncus, urna neque viverra justo, nec ultrices dui sapien eget mi proin sed.
+          </div>
+          <ul id="image-steps" class="nav nav-pills">
+          <!-- <ul id="image-steps" class="nav nav-pills nav-stacked"> -->
+            <li class="step" role="presentation"><a href="#">Mount</a></li>
+            <li class="step" role="presentation"><a href="#">Edit Photo</a></li>
+            <li class="step" role="presentation"><a href="#">Ship</a></li>
+          </ul>
+        </div>
+      </div>
+      </div>
+    </div>
+  <script src="script.js"></script>
+  </body>
+  <script>
+
+  </script>
+<script>
+  document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] +
+  ':8333/livereload.js?snipver=1"></' + 'script>')
+</script>
+</html>
