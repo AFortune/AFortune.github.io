@@ -16,12 +16,19 @@
     margin-top: 100px;
 }
 #all-photos-tab {
-    padding-top:36px;
+    padding-top:42px;
     padding-bottom:36px;
 }
 .tab-button {
-    padding-top:36px;
-    padding-bottom:36px;
+    padding-top:26px;
+    padding-bottom:6px;
+}
+#upload-well {
+    margin-left: 28px;
+    margin-right: 28px;
+    margin-top:-13px;
+    padding-top:40px;
+    height:100px;
 }
 .image-dialog {
     width: 43%;

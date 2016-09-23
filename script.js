@@ -77,6 +77,49 @@ upload_link.addEventListener('click', function(e){
     }, false);
 
 //addButton.addEventListener('click',addPhoto, false);
+
+
+
+document.querySelector('#considered-image')
+    .addEventListener('click',
+                      (e) => {
+                          launchEditor(e.target.id, e.target.currentSrc);
+                      }, false);
+
+var featherEditor = new Aviary.Feather({
+    //9adbf6c2812742938dcbd3cceb3f19d7
+    apiKey: '9adbf6c2812742938dcbd3cceb3f19d7',
+    apiVersion: 3,
+    tools: ['draw', 'stickers','crop'],
+    
+    onSave: function(imageID, newURL) {
+        console.log("save");
+        // var img = document.getElementById(imageID);
+        // //var oldSrc = img.src;
+        // var filename = uniquifyFileName(stripFileName(img.src));
+        // img.src = newURL;
+        // jQuery.post('/photoUpload.php', {url: img.src, postdata: filename})
+        
+        // jQuery('#photo-url-parent input').val('/photos/' + filename);
+        // featherEditor.close();
+    },
+    // onSaveButtonClicked: function(imageID) {
+    //     console.log("hiyah mico");
+    // }
+});
+
+function launchEditor(id, src) {
+    featherEditor.launch({
+        image: id,
+        url: src
+    });
+    return false;
+}
+
+
+
+
+
 gotoImageLinks.forEach((link) => {
     link.addEventListener('click', gotoNewTab, false)
 });
