@@ -15,6 +15,14 @@
     width: 100%;
     margin-top: 100px;
 }
+#all-photos-tab {
+    padding-top:36px;
+    padding-bottom:36px;
+}
+.tab-button {
+    padding-top:36px;
+    padding-bottom:36px;
+}
 .image-dialog {
     width: 43%;
     height: 400px;

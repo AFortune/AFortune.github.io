@@ -18,30 +18,39 @@ function removePhoto(e) {
     e.target.parentElement.parentElement.remove();
 }
 
-function addPhoto() {
+function addPhoto(e) {
     const newPhoto = document.createElement('li');
     const newPhotoLink = document.createElement('a');
     const removePhotoLink = document.createElement('a');
-    newPhotoLink.innerHTML = "Photo";
+    const tabPhoto = document.createElement('img');
+    //newPhotoLink.innerHTML = "Photo";
     newPhotoLink.href = "#";
     newPhotoLink.id = tabs.length;
-    newPhotoLink.addEventListener('click', gotoExistingTab, false);
+    //newPhotoLink.addEventListener('click', gotoExistingTab, false);
+
     removePhotoLink.innerHTML = "x";
     removePhotoLink.className = 'close-photo';
     removePhotoLink.href = "#";
     removePhotoLink.addEventListener('click', removePhoto, false);
+
+    tabPhoto.id = tabs.length;
+    tabPhoto.src = e.target.currentSrc;
+    tabPhoto.style.height = '100px';
+    tabPhoto.addEventListener('click', gotoExistingTab, false)
+
     newPhoto.appendChild(newPhotoLink);
+    newPhotoLink.appendChild(tabPhoto);
     newPhotoLink.appendChild(removePhotoLink);
     photoTabs.insertBefore(newPhoto, addButton);
 }
 
 function gotoNewTab(e) {
-    const src = e.target.currentSrc
+    const src = e.target.currentSrc;
     document.querySelector('#image-area').style.display = "block";
     document.querySelector('#image-gallery').style.display = "none";
     document.querySelector('#considered-image').src = src;
 
-    addPhoto();
+    addPhoto(e);
     tabs.push({src});
 }
 
@@ -55,10 +64,22 @@ function gotoExistingTab(e) {
     document.querySelector('#considered-image').src = tabs[Number(e.target.id)].src;
 
 }
+var upload_link = document.querySelector("#upload_link");
+console.log(upload_link);
+upload_link.addEventListener('click', function(e){
+        e.preventDefault();
+        //var Event = new Event('click');
+        var test = document.querySelector("#photo-upload");
+        console.log(test);
+        test.click();
+        
+        //$("#upload:hidden").trigger('click');
+    }, false);
 
-addButton.addEventListener('click',addPhoto, false);
+//addButton.addEventListener('click',addPhoto, false);
 gotoImageLinks.forEach((link) => {
     link.addEventListener('click', gotoNewTab, false)
 });
 
 allPhotosButton.addEventListener('click', gotoAllPhotos, false);
+

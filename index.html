@@ -11,8 +11,16 @@
     <div class="container">
       <div id="tabs-container">
         <ul id="photo-tabs" class="nav nav-tabs">
-          <li role="presentation"><a id="all-photos-button" href="#">All Photos</a></li>
-          <li id="add-button" role="presentation"><a  href="#">Add Photo +</a></li>
+          <li id="all-photos-tab" class="tab-button" role="presentation"><a id="all-photos-button" href="#">All Photos</a></li>
+          <li id="aadd-button" class="tab-button" role="presentation">
+            <!-- <label class="btn btn-default btn-file"> -->
+<div class="well">
+
+ <a href="" id="upload_link">Upload Photo</a><input id="photo-upload" type="file" style="display: none;">
+</div>
+            <!-- </label> -->
+          </li>
+          <!-- <li id="add-button" role="presentation"><a  href="#">Add Photo +</a></li> -->
         </ul>
       </div>
       <div id="page-content">
@@ -162,7 +170,9 @@
 
   </script>
   <script>
+
+
     document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] +
-                                 ':8333/livereload.js?snipver=1"></' + 'script>')
+                                 ':35729/livereload.js?snipver=1"></' + 'script>')
 </script>
 </html>
