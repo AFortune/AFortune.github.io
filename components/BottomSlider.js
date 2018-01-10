@@ -5,6 +5,21 @@ import "./SliderStyle.css"
 // Try this out: https://github.com/voronianski/react-swipe
 
 const styles = {
+    BottomSliderContainerParent: {
+	padding:0,
+	margin:0,
+	position:'fixed',
+	left:0,
+	bottom:0,
+	minWidth:"100%",
+	height:"120px",
+	backgroundColor:'#efefef',
+    },
+    BottomSliderContainerButtons: {
+	display:'flex',
+	justifyContent:'center',
+	alignItems:'center',
+    },
     BottomSliderContainer: {
 	padding:0,
 	margin:0,
@@ -13,7 +28,6 @@ const styles = {
 	bottom:0,
 	minWidth:"100%",
 	height:"80px",
-	backgroundColor:"tan",
 	backgroundColor:'#efefef',
     },
     BottomSlider: {
@@ -53,7 +67,6 @@ const styles = {
 const BottomSliderItem = props => <div className="slider-item" onClick={action('clicky')} style={styles.BottomSliderItem} >{props.text}</div>;
 
 
-
 class BottomSlider extends Component {
     constructor(props) {
 	super(props)
@@ -63,25 +76,30 @@ class BottomSlider extends Component {
 	this.dragEnd = this.dragEnd.bind(this)
     }
     dragOver(e) {
-	const event = e;
-	const { clientX } = e;
+	const event = e.touches ? e.touches[0]: e;
+	const { clientX } = event;
 	this.setState((prevState,props) => {
 	    const xDiff = (clientX - prevState.dragInitial);
 	    return merge(prevState,{leftPosition: xDiff})
 	})
     }
     dragStart(e) {
-	const event = e;
-	const { clientX } = e;
+	//const event = e;
+	const event = e.touches ? e.touches[0]: e;
+	const { clientX } = event;
 	const emptyDiv = document.createElement('div')
 	this.setState((prevState,props) => {
 	    const startingPosition = clientX - prevState.leftPosition;
-	    event.dataTransfer.setDragImage(emptyDiv, -99999, -99999);
+	    if(event.dataTransfer) {
+		event.dataTransfer.setDragImage(emptyDiv, -99999, -99999);
+	    }
 	    return merge(prevState,{dragInitial:startingPosition}) 
 	})
     }
     dragEnd(e) {
-	const { clientX } = e;
+	const event = e.touches ? e.changedTouches[0]: e;
+	console.log(e);
+	const { clientX } = event; 
 	this.setState((prevState,props) => {
 	    return merge(prevState,{dragInitial:clientX})
 	})
@@ -98,8 +116,22 @@ class BottomSlider extends Component {
 	// itemContainer.addEventListener('dragstart', this.dragStart);
 	// itemContainer.addEventListener('dragover', this.dragOver);
 	// itemContainer.addEventListener('dragend', this.dragEnd);
+	itemContainer.addEventListener("touchstart", this.dragStart, false);
+	itemContainer.addEventListener("touchmove", this.dragOver, false);
+	itemContainer.addEventListener("touchend", this.dragEnd, false);
     }
     render() {
+	if(this.props.buttons) {
+	    return <div style={styles.BottomSliderContainerParent}>
+		<div style={styles.BottomSliderContainerButtons} ><button>Crop</button><button>Undo</button></div>
+		<div id="dragbox" style={styles.BottomSliderContainer}>
+	    <div id="drag-container" draggable style={merge(styles.BottomSlider,{left: this.state.leftPosition})}>
+	    {this.props.items.map(el=><BottomSliderItem text={el} />)}
+	</div>
+	</div>
+	</div>;
+
+	}
 	return <div id="dragbox" style={styles.BottomSliderContainer}>
 	    <div id="drag-container" draggable style={merge(styles.BottomSlider,{left: this.state.leftPosition})}>
 	    {this.props.items.map(el=><BottomSliderItem text={el} />)}
