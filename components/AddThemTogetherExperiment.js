@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 import { action } from '@storybook/addon-actions';
 import './FadeInAndOutImage.css'
+import "./SlideOutTextOverlay.css";
 
 class Toggler extends Component {
     constructor(props) {
@@ -56,8 +57,6 @@ class FadeInAndOutImage extends Component {
 	return <div>
 	    <img src="https://source.unsplash.com/random/400x300"/>
 	    </div>
-
-          
     }
 }
 
