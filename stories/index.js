@@ -4,6 +4,7 @@ import { action } from '@storybook/addon-actions';
 import Button from '../components/Button';
 import BottomSlider from '../components/BottomSlider';
 import FadeInAndOutImage from '../components/FadeInAndOutImage'
+import SlideOutTextOverlay from '../components/SlideOutTextOverlay'
 
 
 storiesOf('BottomSlider', module)
@@ -60,6 +61,17 @@ storiesOf('Fade Image', module)
   .add('with mobile size', () => (
 	  <FadeInAndOutImage/>
   ));
+storiesOf('Fade Image Overlay', module)
+  .add('with desktop size', () => (
+	  <SlideOutTextOverlay/>
+  ))
+  .add('with tablet size', () => (
+	  <SlideOutTextOverlay/>
+  ))   
+  .add('with mobile size', () => (
+	  <SlideOutTextOverlay/>
+  ));
+
 
 storiesOf('Checkout Area', module)
   .add('with desktop size', () => (

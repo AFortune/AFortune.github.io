@@ -16,12 +16,6 @@ class Toggler extends Component {
 	})
     }
     render() {
-	// if(this.state.show){
-	//     return <div>
-	// 	{this.props.children}
-	// 	<button onClick={this.toggle}>Toggle</button>
-	//     </div>;
-	// }
 	return <div>
 		<button onClick={this.toggle}>Toggle</button>
 
@@ -59,22 +53,9 @@ class FadeInAndOutImage extends Component {
 	action('unmounting')('yoho')
     }
     render() {
-// return (
-//     <CSSTransitionGroup
-//       transitionName="example"
-//       transitionAppear={true}
-//       transitionAppearTimeout={500}
-//       transitionEnter={false}
-//       transitionLeave={false}>
-// 	<h1 key={'item'}>Fading at Initial Mount</h1>
-//     </CSSTransitionGroup>
-//   );
-
 	return <div>
 	    <img src="https://source.unsplash.com/random/400x300"/>
 	    </div>
-
-          
     }
 }
 
