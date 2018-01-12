@@ -49,10 +49,11 @@ class SlideOutTextOverlay extends Component {
     }
     render() {
 	return <div>
+	    <button onClick={this.toggle}>Toggle</button>
 	    <CSSTransitionGroup
           transitionName="arrive-image"
-          transitionEnterTimeout={500}
-          transitionLeaveTimeout={300}>
+          transitionEnterTimeout={300}
+          transitionLeaveTimeout={100}>
 	    {this.state.show && <div><OverlayTop animationClassName="slide-up"/> 
 	     <div className="tile-image-container">
 	     <div className="tile-image-background">BONES</div>
@@ -62,7 +63,6 @@ class SlideOutTextOverlay extends Component {
 	     </div>
 	    }
 	</CSSTransitionGroup>
-	    <button onClick={this.toggle}>Toggle</button>
 	    </div>;
     }
 }
