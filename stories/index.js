@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import Button from '../components/Button';
 import BottomSlider from '../components/BottomSlider';
-import FadeInAndOutImage from '../components/FadeInAndOutImage'
+import ImageWithOverlay from '../components/ImageWithOverlay'
 import SlideOutTextOverlay from '../components/SlideOutTextOverlay'
 
 
@@ -53,13 +53,13 @@ storiesOf('Cart Display', module)
 
 storiesOf('Fade Image', module)
   .add('with desktop size', () => (
-	  <FadeInAndOutImage/>
+	  <ImageWithOverlay/>
   ))
   .add('with tablet size', () => (
-	  <FadeInAndOutImage/>
+	  <ImageWithOverlay/>
   ))   
   .add('with mobile size', () => (
-	  <FadeInAndOutImage/>
+	  <ImageWithOverlay/>
   ));
 storiesOf('Fade Image Overlay', module)
   .add('with desktop size', () => (

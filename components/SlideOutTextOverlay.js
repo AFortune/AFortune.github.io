@@ -1,7 +1,8 @@
 import React, {Component} from "react";
 import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 import { action } from '@storybook/addon-actions';
-import "./SlideOutTextOverlay.css";
+import "./ArriveImageAnimation.css";
+import "./ImageOverlays.css";
 
 // So the question remaining here is how to
 // apply multiple animations on unmount.
@@ -49,17 +50,12 @@ class SlideOutTextOverlay extends Component {
     render() {
 	return <div>
 	    <CSSTransitionGroup
-          transitionName="slide-up"
+          transitionName="arrive-image"
           transitionEnterTimeout={500}
           transitionLeaveTimeout={300}>
-	    {this.state.show && <h3> Top Title</h3> }
-	</CSSTransitionGroup>
-	    <CSSTransitionGroup
-          transitionName="slide-down"
-          transitionEnterTimeout={500}
-          transitionLeaveTimeout={300}>
-	    {this.state.show && <div><h3> Bottom Title</h3>
-	     <img src="https://source.unsplash.com/random/400x300"/>
+	    {this.state.show && <div><OverlayTop animationClassName="slide-up"/> 
+	     <OverlayBottom  animationClassName="slide-down"/>
+	     <img className="zoom-fade" src="https://source.unsplash.com/random/400x300"/>
 	     </div>
 	    }
 	</CSSTransitionGroup>
@@ -68,7 +64,27 @@ class SlideOutTextOverlay extends Component {
     }
 }
 
+export const OverlayTop = props => <div className={props.animationClassName}>
+    <div className="photo-title-container">
+    <div className="photo-title-text-area">
+    <div className="photo-title-title">BONES</div>
+    <div className="photo-title-sub-title">
+    <div className="photo-title-sub-title-line"></div>
+    <div className="photo-title-sub-title-text"><span className="bold">300</span> pink</div>
+    </div>
+    </div>
+    </div>
+    </div>
+    export const OverlayBottom = props => <div className={props.animationClassName}>
+    <div className="photo-bottom-container">
+    <div className="photo-bottom-button-container">
+    <div className="circle-button">🌢</div>
+    <div className="circle-button">✻</div>
+    <div className="circle-button">⛵</div>
+    </div>
+    <div className="photo-bottom-price-container">$4.00 </div>
+    </div>
+    </div>
 
 export default SlideOutTextOverlay;
 
-      

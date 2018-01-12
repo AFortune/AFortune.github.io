@@ -1,0 +1,65 @@
+/* Top Overlay */
+@import url('https://fonts.googleapis.com/css?family=Karla');
+
+.photo-title-container {
+    display:flex;
+    justify-content:center;
+}
+.photo-title-text-area {
+}
+.photo-title-title {
+    font-family: 'Karla', sans-serif;
+    font-size:40px;
+    font-weight:500;
+}
+.photo-title-sub-title {
+    font-family: 'Karla', sans-serif;
+    font-size:10px;
+    font-weight:500;
+    display:flex;
+    justify-content:space-between;
+}
+.bold {
+    font-weight:bold;
+}
+.photo-title-sub-title-line {
+    border-bottom: 3px solid black;
+    width:20px;
+    transition: width .5s ease-in;
+}
+.photo-title-container:hover .photo-title-sub-title-line {
+    border-bottom: 3px solid black;
+    width:80px;
+}
+/* Bottom Overlay */
+.photo-bottom-container {
+    display:flex;
+    justify-content:space-around;
+}
+.circle-button {
+    width:30px;
+    height:30px;
+    border-radius:15px;
+    border: 1px solid #EEEEEE;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:#757575;
+    font-size:14px;
+}
+.photo-bottom-button-container {
+    display:flex;
+    justify-content:space-around;
+    width: 120px;
+
+}
+.photo-bottom-price-container {
+    font-family: 'Karla', sans-serif;
+    font-size:20px;
+    border-bottom: 3px solid #00BFA5;
+    text-align:center;
+    width:60px;
+    padding-bottom:5px;
+    margin-bottom:5px;
+
+}

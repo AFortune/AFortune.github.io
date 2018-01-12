@@ -1,0 +1,70 @@
+.arrive-image-enter .slide-up{
+  opacity: 0.01;
+  transform:translate3d(0,-40px,0);
+}
+
+.arrive-image-enter.arrive-image-enter-active .slide-up{
+  opacity: 1;
+  transform:translate3d(0,0,0);
+  transition: opacity 500ms ease-in, transform 100ms ease-in;
+}
+
+.arrive-image-leave .slide-up{
+  opacity: 1;
+  transform:translate3d(0,0,0);
+}
+
+.arrive-image-leave.arrive-image-leave-active .slide-up{
+  opacity: 0.01;
+  transform:translate3d(0,-40px,0);
+  transition: opacity 100ms ease-in,  transform 100ms ease-in;
+}
+
+.arrive-image-enter .slide-down{
+  opacity: 0.01;
+  transform:translate3d(0,40px,0);
+}
+
+.arrive-image-enter.arrive-image-enter-active .slide-down{
+  opacity: 1;
+  transform:translate3d(0,0,0);
+  transition: opacity 500ms ease-in, transform 100ms ease-in;
+}
+
+.arrive-image-leave .slide-down{
+  opacity: 1;
+  transform:translate3d(0,0,0);
+}
+
+.arrive-image-leave.arrive-image-leave-active .slide-down{
+  opacity: 0.01;
+  transform:translate3d(0, 40px,0);
+  transition: opacity 100ms ease-in,  transform 100ms ease-in;
+}
+
+
+
+
+/* test below */
+
+.arrive-image-enter .zoom-fade{
+  opacity: 0.01;
+  transform:scale(0.2)
+}
+
+.arrive-image-enter.arrive-image-enter-active .zoom-fade{
+  opacity: 1;
+  transform:scale(1);
+  transition: opacity 500ms ease-in, transform 100ms ease-in;
+}
+
+.arrive-image-leave zoom-fade{
+  opacity: 1;
+  transform:scale(1);
+}
+
+.arrive-image-leave.arrive-image-leave-active .zoom-fade{
+  opacity: 0.01;
+  transform:scale(0.2);
+  transition: opacity 100ms ease-in,  transform 100ms ease-in;
+}
