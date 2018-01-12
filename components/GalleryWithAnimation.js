@@ -54,8 +54,8 @@ class  GalleryWithAnimation extends Component {
 	return (
 	    <CSSTransitionGroup
           transitionName="arrive-image"
-          transitionEnterTimeout={300}
-          transitionLeaveTimeout={100}>
+          transitionEnterTimeout={1000}
+          transitionLeaveTimeout={1000}>
 		
 	    <button onClick={this.toggle}>Toggle</button>
 	    <button onClick={this.changeList}>Swap</button>
@@ -65,8 +65,8 @@ class  GalleryWithAnimation extends Component {
 
 	    <CSSTransitionGroup
 		 transitionName="arrive-image"
-		 transitionEnterTimeout={300}
-		 transitionLeaveTimeout={100}>
+		 transitionEnterTimeout={1000}
+		 transitionLeaveTimeout={1000}>
 		 {this.state.items.map((el,i) => <SlideOutTextOverlaySimple key={"a"+i+el.make} url={el.url} make={el.make} />)}
 
 		</CSSTransitionGroup>
@@ -74,8 +74,8 @@ class  GalleryWithAnimation extends Component {
 	    <div className="gallery-column">
 	    <CSSTransitionGroup
 		 transitionName="arrive-image"
-		 transitionEnterTimeout={300}
-		 transitionLeaveTimeout={100}>
+		 transitionEnterTimeout={1000}
+		 transitionLeaveTimeout={1000}>
 		 {this.state.items.map((el,i) => <SlideOutTextOverlaySimple key={"b"+i+el.make} make={el.make} url={el.url}/>)}
 		</CSSTransitionGroup>
 	    </div>
