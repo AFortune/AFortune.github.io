@@ -54,8 +54,10 @@ class SlideOutTextOverlay extends Component {
           transitionEnterTimeout={500}
           transitionLeaveTimeout={300}>
 	    {this.state.show && <div><OverlayTop animationClassName="slide-up"/> 
+	     <div className="tile-image-container">
+	     <img className="zoom-fade tile-image" src="http://goggles.wedze.com/winter-2017-2018/assets/img/products/goggles/bones-700/bones-700-green-photochromic.png"/>
+	     </div>
 	     <OverlayBottom  animationClassName="slide-down"/>
-	     <img className="zoom-fade" src="https://source.unsplash.com/random/400x300"/>
 	     </div>
 	    }
 	</CSSTransitionGroup>

@@ -36,6 +36,17 @@
     display:flex;
     justify-content:space-around;
 }
+.tile-image {
+    display:block;
+    width:400px;
+}
+.tile-image-container {
+    margin: 10px 0;
+    display:flex;
+    width:100%;
+    justify-content:center;
+    align-items:center;
+}
 .circle-button {
     width:30px;
     height:30px;
@@ -47,18 +58,19 @@
     color:#757575;
     font-size:14px;
 }
+
 .photo-bottom-button-container {
     display:flex;
     justify-content:space-around;
     width: 120px;
-
 }
+
 .photo-bottom-price-container {
     font-family: 'Karla', sans-serif;
     font-size:20px;
     border-bottom: 3px solid #00BFA5;
     text-align:center;
-    width:60px;
+    width:70px;
     padding-bottom:5px;
     margin-bottom:5px;
 
