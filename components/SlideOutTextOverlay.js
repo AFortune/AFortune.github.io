@@ -31,10 +31,10 @@ class Toggler extends Component {
 
 export const SlideOutTextOverlaySimple  = props => {
 	return <div>
-	    <div><OverlayTop animationClassName="slide-up"/> 
+	    <div><OverlayTop make={props.make} animationClassName="slide-up"/> 
 	     <div className="tile-image-container">
-	     <div className="tile-image-background">BONES</div>
-	     <img className="zoom-fade tile-image" src="http://goggles.wedze.com/winter-2017-2018/assets/img/products/goggles/bones-700/bones-700-green-photochromic.png"/>
+	     <div className="tile-image-background">{props.make}</div>
+	<img className="zoom-fade tile-image" src={props.url}/>
 	     </div>
 	     <OverlayBottom  animationClassName="slide-down"/>
 	     </div>
@@ -65,7 +65,7 @@ class SlideOutTextOverlay extends Component {
           transitionName="arrive-image"
           transitionEnterTimeout={300}
           transitionLeaveTimeout={100}>
-	    {this.state.show && <div><OverlayTop animationClassName="slide-up"/> 
+	    {this.state.show && <div><OverlayTop make="BONES" animationClassName="slide-up"/> 
 	     <div className="tile-image-container">
 	     <div className="tile-image-background">BONES</div>
 	     <img className="zoom-fade tile-image" src="http://goggles.wedze.com/winter-2017-2018/assets/img/products/goggles/bones-700/bones-700-green-photochromic.png"/>
@@ -81,7 +81,7 @@ class SlideOutTextOverlay extends Component {
 export const OverlayTop = props => <div className={props.animationClassName}>
     <div className="photo-title-container">
     <div className="photo-title-text-area">
-    <div className="photo-title-title">BONES</div>
+    <div className="photo-title-title">{props.make}</div>
     <div className="photo-title-sub-title">
     <div className="photo-title-sub-title-line"></div>
     <div className="photo-title-sub-title-text"><span className="bold">300</span> pink</div>
