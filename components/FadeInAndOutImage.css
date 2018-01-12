@@ -21,21 +21,25 @@
 }
 
 /* test below */
-.example-enter.text {
-  transform:scale(4)
-}
 
-.example-enter.example-enter-active.text {
-  transform:scale(1);
-  transition: transform 100ms ease-in;
-}
-
-.example-leave.text {
-  transform:scale(1);
-}
-
-.example-leave.example-leave-active.text {
+.slide-down-enter img{
   opacity: 0.01;
-  transform:scale(4);
-  transition:  transform 100ms ease-in;
+  transform:scale(0.2)
+}
+
+.slide-down-enter.slide-down-enter-active img{
+  opacity: 1;
+  transform:scale(1);
+  transition: opacity 500ms ease-in, transform 100ms ease-in;
+}
+
+.slide-down-leave img{
+  opacity: 1;
+  transform:scale(1);
+}
+
+.slide-down-leave.slide-down-leave-active img{
+  opacity: 0.01;
+  transform:scale(0.2);
+  transition: opacity 100ms ease-in,  transform 100ms ease-in;
 }

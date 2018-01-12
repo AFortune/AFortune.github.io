@@ -58,7 +58,10 @@ class SlideOutTextOverlay extends Component {
           transitionName="slide-down"
           transitionEnterTimeout={500}
           transitionLeaveTimeout={300}>
-	    {this.state.show && <h3> Bottom Title</h3>}
+	    {this.state.show && <div><h3> Bottom Title</h3>
+	     <img src="https://source.unsplash.com/random/400x300"/>
+	     </div>
+	    }
 	</CSSTransitionGroup>
 	    <button onClick={this.toggle}>Toggle</button>
 	    </div>;
