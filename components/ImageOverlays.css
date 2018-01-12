@@ -40,7 +40,22 @@
     display:block;
     width:400px;
 }
+.tile-image-background {
+    position:absolute;
+    z-index:-1;
+    font-family: 'Karla';
+    font-weight:600;
+    font-size:100px;
+    bottom:34%;
+    color:#EEEEEE;
+    transition: color 1s ease-in;
+}
+
+.tile-image-container:hover .tile-image-background {
+    color:#B2EBF2;
+}
 .tile-image-container {
+    position:relative;
     margin: 10px 0;
     display:flex;
     width:100%;

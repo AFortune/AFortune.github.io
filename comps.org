@@ -12,3 +12,7 @@ the animations into the gallery and then I just worry about
 the images themselves and the overlay itself. Okay.
 That should do for now. We will move the css trantision
 into the gallery. And we will then style the images and overlays.
+
+
+Okay the plan worked. Now I wonder about the text behind the image.
+
