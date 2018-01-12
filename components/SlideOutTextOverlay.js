@@ -63,8 +63,8 @@ class SlideOutTextOverlay extends Component {
 	    <button onClick={this.toggle}>Toggle</button>
 	    <CSSTransitionGroup
           transitionName="arrive-image"
-          transitionEnterTimeout={300}
-          transitionLeaveTimeout={100}>
+          transitionEnterTimeout={1000}
+          transitionLeaveTimeout={1000}>
 	    {this.state.show && <div><OverlayTop make="BONES" animationClassName="slide-up"/> 
 	     <div className="tile-image-container">
 	     <div className="tile-image-background">BONES</div>
