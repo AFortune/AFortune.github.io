@@ -1,0 +1,7 @@
+.two-column-gallery {
+    display:flex;
+    justify-content:center;
+}
+.gallery-column {
+    margin:5px;
+}

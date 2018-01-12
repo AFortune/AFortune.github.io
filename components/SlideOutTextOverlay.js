@@ -29,6 +29,17 @@ class Toggler extends Component {
 
 
 
+export const SlideOutTextOverlaySimple  = props => {
+	return <div>
+	    <div><OverlayTop animationClassName="slide-up"/> 
+	     <div className="tile-image-container">
+	     <div className="tile-image-background">BONES</div>
+	     <img className="zoom-fade tile-image" src="http://goggles.wedze.com/winter-2017-2018/assets/img/products/goggles/bones-700/bones-700-green-photochromic.png"/>
+	     </div>
+	     <OverlayBottom  animationClassName="slide-down"/>
+	     </div>
+	    </div>;
+};
 class SlideOutTextOverlay extends Component {
     constructor(props) {
 	super(props)
@@ -77,8 +88,9 @@ export const OverlayTop = props => <div className={props.animationClassName}>
     </div>
     </div>
     </div>
-    </div>
-    export const OverlayBottom = props => <div className={props.animationClassName}>
+    </div>;
+
+export const OverlayBottom = props => <div className={props.animationClassName}>
     <div className="photo-bottom-container">
     <div className="photo-bottom-button-container">
     <div className="circle-button">🌢</div>

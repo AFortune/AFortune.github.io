@@ -5,40 +5,41 @@ import Button from '../components/Button';
 import BottomSlider from '../components/BottomSlider';
 import ImageWithOverlay from '../components/ImageWithOverlay'
 import SlideOutTextOverlay from '../components/SlideOutTextOverlay'
+import GalleryWithAnimation from '../components/GalleryWithAnimation'
 
 
-storiesOf('BottomSlider', module)
-  .add('with media', () => (
-	  <BottomSlider items={[1,2,3]}>Hello Button</BottomSlider>
-  ))
-  .add('with sizes', () => (
-	  <BottomSlider items={['😀', '😎', '👍', '💯',5]} >😀 😎 👍 💯</BottomSlider>
-  ))   
-  .add('with sizes and crop buttons', () => (
-	  <BottomSlider buttons items={[1,2,3,4,5,1,2,3,4,5,1,2,3,4,5,1,2,3,4,5]} >😀 😎 👍 💯</BottomSlider>
-  ));
+// storiesOf('BottomSlider', module)
+//   .add('with media', () => (
+// 	  <BottomSlider items={[1,2,3]}>Hello Button</BottomSlider>
+//   ))
+//   .add('with sizes', () => (
+// 	  <BottomSlider items={['😀', '😎', '👍', '💯',5]} >😀 😎 👍 💯</BottomSlider>
+//   ))   
+//   .add('with sizes and crop buttons', () => (
+// 	  <BottomSlider buttons items={[1,2,3,4,5,1,2,3,4,5,1,2,3,4,5,1,2,3,4,5]} >😀 😎 👍 💯</BottomSlider>
+//   ));
 
-storiesOf('Photo Gallery', module)
-  .add('with desktop size', () => (
-	  <BottomSlider items={[1,2,3]}>Hello Button</BottomSlider>
-  ))
-  .add('with tablet size', () => (
-	  <BottomSlider items={['😀', '😎', '👍', '💯',5]} >😀 😎 👍 💯</BottomSlider>
-  ))   
-  .add('with mobile size', () => (
-	  <BottomSlider items={[1,2,3,4,5,1,2,3,4,5,1,2,3,4,5,1,2,3,4,5]} >😀 😎 👍 💯</BottomSlider>
-  ));
+// storiesOf('Photo Gallery', module)
+//   .add('with desktop size', () => (
+// 	  <BottomSlider items={[1,2,3]}>Hello Button</BottomSlider>
+//   ))
+//   .add('with tablet size', () => (
+// 	  <BottomSlider items={['😀', '😎', '👍', '💯',5]} >😀 😎 👍 💯</BottomSlider>
+//   ))   
+//   .add('with mobile size', () => (
+// 	  <BottomSlider items={[1,2,3,4,5,1,2,3,4,5,1,2,3,4,5,1,2,3,4,5]} >😀 😎 👍 💯</BottomSlider>
+//   ));
 
-storiesOf('Cart Display', module)
-  .add('with desktop size', () => (
-	  <BottomSlider items={[1,2,3]}>Hello Button</BottomSlider>
-  ))
-  .add('with tablet size', () => (
-	  <BottomSlider items={['😀', '😎', '👍', '💯',5]} >😀 😎 👍 💯</BottomSlider>
-  ))   
-  .add('with mobile size', () => (
-	  <BottomSlider items={[1,2,3,4,5,1,2,3,4,5,1,2,3,4,5,1,2,3,4,5]} >😀 😎 👍 💯</BottomSlider>
-  ));
+// storiesOf('Cart Display', module)
+//   .add('with desktop size', () => (
+// 	  <BottomSlider items={[1,2,3]}>Hello Button</BottomSlider>
+//   ))
+//   .add('with tablet size', () => (
+// 	  <BottomSlider items={['😀', '😎', '👍', '💯',5]} >😀 😎 👍 💯</BottomSlider>
+//   ))   
+//   .add('with mobile size', () => (
+// 	  <BottomSlider items={[1,2,3,4,5,1,2,3,4,5,1,2,3,4,5,1,2,3,4,5]} >😀 😎 👍 💯</BottomSlider>
+//   ));
 
 // storiesOf('Checkout Area', module)
 //   .add('with desktop size', () => (
@@ -61,7 +62,7 @@ storiesOf('Fade Image', module)
   .add('with mobile size', () => (
 	  <ImageWithOverlay/>
   ));
-storiesOf('Fade Image Overlay', module)
+storiesOf('Fade Image With Overlay', module)
   .add('with desktop size', () => (
 	  <SlideOutTextOverlay/>
   ))
@@ -72,14 +73,25 @@ storiesOf('Fade Image Overlay', module)
 	  <SlideOutTextOverlay/>
   ));
 
-
-storiesOf('Checkout Area', module)
+storiesOf('Fade Image With Overlay Gallery', module)
   .add('with desktop size', () => (
-	  <BottomSlider items={[1,2,3]}>Hello Button</BottomSlider>
+	  <GalleryWithAnimation items={[1,2,3,4,5]}/>
   ))
   .add('with tablet size', () => (
-	  <BottomSlider items={['😀', '😎', '👍', '💯',5]} >😀 😎 👍 💯</BottomSlider>
+	  <SlideOutTextOverlay/>
   ))   
   .add('with mobile size', () => (
-	  <BottomSlider items={[1,2,3,4,5,1,2,3,4,5,1,2,3,4,5,1,2,3,4,5]} >😀 😎 👍 💯</BottomSlider>
+	  <SlideOutTextOverlay/>
   ));
+
+
+// storiesOf('Checkout Area', module)
+//   .add('with desktop size', () => (
+// 	  <BottomSlider items={[1,2,3]}>Hello Button</BottomSlider>
+//   ))
+//   .add('with tablet size', () => (
+// 	  <BottomSlider items={['😀', '😎', '👍', '💯',5]} >😀 😎 👍 💯</BottomSlider>
+//   ))   
+//   .add('with mobile size', () => (
+// 	  <BottomSlider items={[1,2,3,4,5,1,2,3,4,5,1,2,3,4,5,1,2,3,4,5]} >😀 😎 👍 💯</BottomSlider>
+//   ));

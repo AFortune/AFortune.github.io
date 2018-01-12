@@ -6,7 +6,7 @@
 .arrive-image-enter.arrive-image-enter-active .slide-up{
   opacity: 1;
   transform:translate3d(0,0,0);
-  transition: opacity 500ms ease-in, transform 100ms ease-in;
+  transition: opacity 100ms ease-in, transform 100ms ease-in;
 }
 
 .arrive-image-leave .slide-up{
@@ -28,7 +28,7 @@
 .arrive-image-enter.arrive-image-enter-active .slide-down{
   opacity: 1;
   transform:translate3d(0,0,0);
-  transition: opacity 500ms ease-in, transform 100ms ease-in;
+  transition: opacity 100ms ease-in, transform 100ms ease-in;
 }
 
 .arrive-image-leave .slide-down{

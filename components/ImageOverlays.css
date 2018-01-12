@@ -39,7 +39,9 @@
 .tile-image {
     display:block;
     width:400px;
+    transition: width .1s ease-in;
 }
+
 .tile-image-background {
     position:absolute;
     z-index:-1;
@@ -53,6 +55,10 @@
 
 .tile-image-container:hover .tile-image-background {
     color:#B2EBF2;
+}
+
+.tile-image-container:hover .tile-image {
+    width:410px;
 }
 .tile-image-container {
     position:relative;
