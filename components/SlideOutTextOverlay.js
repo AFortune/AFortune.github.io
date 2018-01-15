@@ -30,7 +30,7 @@ class Toggler extends Component {
 
 
 export const SlideOutTextOverlaySimple  = props => {
-	return <div>
+	return <div className="complete-image-tile">
 	    <div><OverlayTop make={props.make} animationClassName="slide-up"/> 
 	     <div className="tile-image-container">
 	     <div className="tile-image-background">{props.make}</div>
@@ -97,7 +97,10 @@ export const OverlayBottom = props => <div className={props.animationClassName}>
     <div className="circle-button">✻</div>
     <div className="circle-button">⛵</div>
     </div>
+    <div className="photo-bottom-price-section">
     <div className="photo-bottom-price-container">$4.00 </div>
+    <div className="photo-bottom-price-overlay">$4.00 </div>
+    </div>
     </div>
     </div>
 

@@ -17,15 +17,17 @@ class  GalleryWithAnimation extends Component {
 	this.state = {show:false, items:listT1, oldList:true}
 	this.toggle = this.toggle.bind(this)
 	this.changeList = this.changeList.bind(this)
+	this.clearList = this.clearList.bind(this)
     }
 
-    changeList() {
-	// this is silly but neccessary for
-	// the animation
+    clearList() {
 	this.setState((prevState,props) => {
 	    prevState.items = [];
 	    return prevState
 	})
+    }
+    changeList() {
+	this.clearList();
 	window.setTimeout(() =>
 	this.setState((prevState,props) => {
 	    if(prevState.oldList) {
@@ -36,9 +38,15 @@ class  GalleryWithAnimation extends Component {
 	    }
 	    prevState.oldList = !prevState.oldList
 	    return prevState
-	}), 1100) // this had to be longer than a second
-	          // to let everything catch up
-	          // kind of stupid
+	})
+	, 1100) // this had to be longer than a second
+	// to let everything catch up
+	// kind of stupid wonder how hard it would
+	// be to create a new animation lib for
+	// react. I wonder about the callback.
+	// Callback only available in
+	// newer version. Newer version follows
+	// different class conventions.
     }
 
     toggle() {
@@ -73,15 +81,16 @@ class  GalleryWithAnimation extends Component {
 	    <button onClick={this.changeList}>Swap</button>
 		{this.state.show &&
 		<div className="two-column-gallery">
-	    <div className="gallery-column">
+	    <div className="gallery-column left-column">
 	    <CSSTransitionGroup
+		 onExited={this.changeList}
 		 transitionName="arrive-image"
 		 transitionEnterTimeout={1000}
 		 transitionLeaveTimeout={1000}>
 		 {items}
 		</CSSTransitionGroup>
 	    </div>
-	    <div className="gallery-column">
+	    <div className="gallery-column right-column">
 	    <CSSTransitionGroup
 	    	 transitionName="arrive-image"
 	    	 transitionEnterTimeout={1000}

@@ -21,3 +21,10 @@ Okay the plan worked. Now I wonder about the text behind the image.
 Alright so now we have that. Let's add some filter buttons to the
 gallery and then we can play with that a bit.
 http://goggles.wedze.com/winter-2017-2018/assets/img/products/goggles/bones-500/bones-500-blue-bad-weather.png
+
+
+
+Last things for this are the borders
+and the hover issue.
+
+After that we can launch onto the filter bar.
