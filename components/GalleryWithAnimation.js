@@ -20,6 +20,13 @@ class  GalleryWithAnimation extends Component {
     }
 
     changeList() {
+	// this is silly but neccessary for
+	// the animation
+	this.setState((prevState,props) => {
+	    prevState.items = [];
+	    return prevState
+	})
+	window.setTimeout(() =>
 	this.setState((prevState,props) => {
 	    if(prevState.oldList) {
 		prevState.items = listT2
@@ -29,7 +36,9 @@ class  GalleryWithAnimation extends Component {
 	    }
 	    prevState.oldList = !prevState.oldList
 	    return prevState
-	})
+	}), 1100) // this had to be longer than a second
+	          // to let everything catch up
+	          // kind of stupid
     }
 
     toggle() {
@@ -37,6 +46,9 @@ class  GalleryWithAnimation extends Component {
 	    prevState.show = !prevState.show
 	    return prevState
 	})
+    }
+    handleRemove (i) {
+	console.log(i);
     }
     componentDidMount() {
 	this.setState((prevState,props) => {
@@ -51,36 +63,35 @@ class  GalleryWithAnimation extends Component {
 	})
     }
     render() {
+	const items = this.state.items.map((item, i) => (
+		<SlideOutTextOverlaySimple key={"a"+i+item.make} url={item.url} make={item.make} />
+	    
+	));
 	return (
-	    <CSSTransitionGroup
-          transitionName="arrive-image"
-          transitionEnterTimeout={1000}
-          transitionLeaveTimeout={1000}>
-		
+	    <div>
 	    <button onClick={this.toggle}>Toggle</button>
 	    <button onClick={this.changeList}>Swap</button>
 		{this.state.show &&
 		<div className="two-column-gallery">
 	    <div className="gallery-column">
-
 	    <CSSTransitionGroup
 		 transitionName="arrive-image"
 		 transitionEnterTimeout={1000}
 		 transitionLeaveTimeout={1000}>
-		 {this.state.items.map((el,i) => <SlideOutTextOverlaySimple key={"a"+i+el.make} url={el.url} make={el.make} />)}
-
+		 {items}
 		</CSSTransitionGroup>
 	    </div>
 	    <div className="gallery-column">
 	    <CSSTransitionGroup
-		 transitionName="arrive-image"
-		 transitionEnterTimeout={1000}
-		 transitionLeaveTimeout={1000}>
-		 {this.state.items.map((el,i) => <SlideOutTextOverlaySimple key={"b"+i+el.make} make={el.make} url={el.url}/>)}
-		</CSSTransitionGroup>
+	    	 transitionName="arrive-image"
+	    	 transitionEnterTimeout={1000}
+	    	 transitionLeaveTimeout={1000}>
+	    	 {this.state.items.map((el,i) => <SlideOutTextOverlaySimple key={"b"+i+el.make} make={el.make} url={el.url}/>)}
+	    	</CSSTransitionGroup>
 	    </div>
+
 		 </div>}
-		</CSSTransitionGroup>
+	    </div>
 	);
     }
 }
