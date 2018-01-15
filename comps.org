@@ -28,3 +28,8 @@ Last things for this are the borders
 and the hover issue.
 
 After that we can launch onto the filter bar.
+
+
+
+* Filter bar.
+  Two chalenges here. Make it and make it modular.

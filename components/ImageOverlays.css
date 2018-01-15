@@ -88,6 +88,7 @@
     /* border: 1px solid #EEEEEE; */
 }
 .circle-button {
+    cursor:pointer;
     width:30px;
     height:30px;
     border-radius:15px;
@@ -122,9 +123,12 @@
     background-color:#00BFA5;
     color:white;
     height:31px;
+    cursor:pointer;
 
 }
+
 .photo-bottom-price-overlay {
+    cursor:pointer;
     position:absolute;
     overflow:hidden;
     background-color:white;
@@ -142,4 +146,9 @@
 
 .complete-image-tile:hover .photo-bottom-price-overlay {
     height:0px;
+}
+
+.complete-image-tile:hover .photo-title-sub-title-line {
+    border-bottom: 3px solid black;
+    width:80px;
 }

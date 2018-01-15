@@ -6,6 +6,7 @@ import BottomSlider from '../components/BottomSlider';
 import ImageWithOverlay from '../components/ImageWithOverlay'
 import SlideOutTextOverlay from '../components/SlideOutTextOverlay'
 import GalleryWithAnimation from '../components/GalleryWithAnimation'
+import FilterBar from '../components/FilterBar'
 
 
 // storiesOf('BottomSlider', module)
@@ -84,6 +85,17 @@ storiesOf('Fade Image With Overlay Gallery', module)
 	  <SlideOutTextOverlay/>
   ));
 
+
+storiesOf('FilterBar', module)
+  .add('with desktop size', () => (
+	  <FilterBar />
+  ))
+  .add('with tablet size', () => (
+	  <FilterBar/>
+  ))   
+  .add('with mobile size', () => (
+	  <FilterBar/>
+  ));
 
 // storiesOf('Checkout Area', module)
 //   .add('with desktop size', () => (
