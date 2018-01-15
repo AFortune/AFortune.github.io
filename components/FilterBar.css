@@ -1,14 +1,23 @@
 @import url('https://fonts.googleapis.com/css?family=Arvo');
-
-.filter-bar-container {
+body {
+    margin:0;
+    padding:0;
+}
+.filter-bar-and-section-wrapper {
+    width:100%;
     position:absolute;
     top:0;
     left:0;
     background-color: black;
-    height:80px;
-    width:100%;
+    min-height:80px;
     display:flex;
-    justify-content:space-between;
+    justify-content:end;
+}
+.filter-bar-container {
+    background-color: black;
+    min-height:80px;
+    display:flex;
+    justify-content:end;
 }
 .filter-bar-filter-area {
     display:flex;
@@ -19,25 +28,85 @@
     justify-content:space-around;
     align-items:center;
     min-width:350px;
-    height: 100%;
+    min-height: 100%;
 }
-.filter-bar-logo-area {
-    height:100%;
-    display:flex;
-    align-items:center;
-    
 
+.filter-bar-logo-area {
+    min-height:80%;
+    display:flex;
+    position:absolute;
+    align-items:center;
 }
+
 .filter-bar-logo {
     color: #cccccc;
     font-size:20px;
     padding-left:10px;
     font-family:'Arvo';
 }
+.filter-button-container {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    min-width:100px;
+}
+.filter-bar-selection-area {
+    background-color:black;
+    width:100%;
+    height:0;
+    overflow:hidden;
+    transition:height 1s;
+}
+
+.filter-bar-selection-area.open{
+    height:400px;
+}
+
+.filter-bar-closed-section {
+    display:flex;
+    justify-content:space-between;
+    opacity:1;
+    transition: all .5s;
+}
+
+.filter-bar-open-section {
+    display:flex;
+    justify-content:space-between;
+    display:none;
+    opacity:0;
+    transition: opacity .5s;
+}
+
+
+.transparent {
+    opacity:0;
+}
+.opaque {
+    opacity:1;
+}
+
+.invisible {
+    display:none;
+}
+.filter-bar-closed-section.invisible {
+    display:none;
+}
+
+.visible {
+    display:block;
+}
+.visible-flex {
+    display:flex;
+}
+
+.filter-bar-selection-title {
+    color:white;
+}
 
 .filter-button-text {
     color:white;
     font-family:'Karla';
+    font-weight:bold;
 }
 .filter-circle-button {
     cursor:pointer;
@@ -48,7 +117,7 @@
     display:flex;
     justify-content:center;
     align-items:center;
-    color:#757575;
+    color:#eeeeee;
     font-size:14px;
 }
 
@@ -70,11 +139,13 @@
     display:flex;
     justify-content:center;
     align-items:center;
-    color:#757575;
+    color:#eeeeee;
     font-size:14px;
 }
+
 .filter-bar-notify-text {
     color: #eee;
     font-family: 'Karla';
     font-weight:bold;
 }
+
