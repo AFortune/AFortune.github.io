@@ -71,7 +71,11 @@ body {
     height:400px;
 }
 
+.filter-bar-transition-wrapper {
+}
+
 .filter-bar-closed-section {
+    height:80px;
     display:flex;
     justify-content:space-between;
     opacity:1;
@@ -80,9 +84,10 @@ body {
 
 .filter-bar-open-section {
     display:flex;
+    height:80px;
     justify-content:space-between;
-    display:none;
-    opacity:0;
+    /* display:none; */
+    opacity:1;
     transition: opacity .5s;
     width:50%;
 }
@@ -194,3 +199,67 @@ body {
     font-weight:bold;
 }
 
+
+
+
+
+.filter-bar-fade-enter {
+}
+.filter-bar-fade-enter.filter-bar-fade-enter-active {
+}
+.filter-bar-fade-leave {
+}
+.filter-bar-fade-leave.filter-bar-fade-enter-leave-active {
+}
+
+
+
+.filter-bar-fade-enter .filter-bar-open-section {
+    opacity:0;
+    transition: opacity 800ms ease-in;
+}
+
+.filter-bar-fade-enter.filter-bar-fade-enter-active .filter-bar-open-section {
+    opacity:1;
+    transition: opacity 800ms ease-in;
+}
+
+.filter-bar-fade-leave .filter-bar-open-section{
+
+    opacity:0;
+    transition: opacity 800ms ease-in;
+}
+
+.filter-bar-fade-leave.filter-bar-fade-enter-leave-active .filter-bar-open-section{
+
+    opacity:0;
+    transition: opacity 800ms ease-in;
+}
+
+
+
+
+
+
+
+
+
+
+.filter-bar-fade-enter .filter-bar-closed-section {
+    opacity:0 ;
+    transition: opacity 800ms ease-in;
+}
+
+.filter-bar-fade-enter.filter-bar-fade-enter-active .filter-bar-closed-section {
+    opacity:1;
+}
+
+.filter-bar-fade-leave .filter-bar-closed-section{
+    opacity:0 ;
+    transition: opacity 800ms ease-in;
+}
+
+.filter-bar-fade-leave.filter-bar-fade-enter-leave-active .filter-bar-closed-section{
+    opacity:0 ;
+    transition: opacity 800ms ease-in;
+}
