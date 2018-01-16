@@ -40,7 +40,7 @@ const OpenSection = props =>
                 transitionName="filter-bar-fade"
 	    	 transitionEnterTimeout={FadeInTimeout}
 	    	 transitionLeaveTimeout={FadeOutTimeout}>
-    {props.open &&
+    {props.show &&
      <div key="open-section" className="wrapper-class">
      <div  className={`filter-bar-open-section  ${props.open ? " ": ""}`}>
 	<div className="filter-bar-selection-title" >
@@ -60,14 +60,34 @@ const OpenSection = props =>
 class FilterBar extends Component {
     constructor(props) {
 	super(props)
-	this.state = {filters:[], open:false}
+	this.state = {filters:[], open:false, close:false}
 	this.toggle = this.toggle.bind(this)
     }
     toggle() {
-	this.setState((prevState,props) => {
-	    prevState.open = !prevState.open
-	    return prevState
-	})
+	if (!this.state.open) {
+	    this.setState((prevState,props) => {
+		prevState.open = !prevState.open
+		return prevState
+	    })
+	    window.setTimeout( () => {
+		this.setState((prevState,props) => {
+		    prevState.close = !prevState.close
+		    return prevState
+		})
+	    },801)
+	}
+	else {
+	    this.setState((prevState,props) => {
+		prevState.close = !prevState.close
+		return prevState
+	    })
+	    window.setTimeout( () => {
+		this.setState((prevState,props) => {
+		    prevState.open = !prevState.open
+		    return prevState
+		})
+	    },801)
+	}
     }
 
     render() {
@@ -78,8 +98,8 @@ class FilterBar extends Component {
       <div className="filter-bar-logo">Amanuensis</div>
     </div>
     <div className="filter-bar-container">
-		<ClosedSection toggle={this.toggle} open={this.state.open} />
-		<OpenSection toggle={this.toggle} open={this.state.open} />
+		<ClosedSection toggle={this.toggle} show={this.state.close} open={this.state.open} />
+		<OpenSection toggle={this.toggle} show={this.state.close} open={this.state.open} />
     </div>
   </div>
   <div className={`filter-bar-selection-area ${this.state.open ? "open": ""}`}>
