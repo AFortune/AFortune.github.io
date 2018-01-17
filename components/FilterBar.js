@@ -73,7 +73,6 @@ class FilterBar extends Component {
 	};
 	this.toggle = this.toggle.bind(this)
     }
-
     selectFilter(section, id) { // should work? see if you can understand later
 	const findIndexById = (id,data) => findIndex(propEq('id',id),data)
 	this.setState((prevState, props) => {
@@ -84,6 +83,7 @@ class FilterBar extends Component {
 
 	})
     }
+
     toggle() {
 	if (!this.state.open) {
 	    this.setState((prevState,props) => {
