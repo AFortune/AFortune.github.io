@@ -33,3 +33,8 @@ After that we can launch onto the filter bar.
 
 * Filter bar.
   Two chalenges here. Make it and make it modular.
+
+** For next time.
+   Make the filter icons fade in and out when cleared.
+   Then fix the positioning of the top bar.
+   Then get the images to filter.

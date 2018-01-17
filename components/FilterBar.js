@@ -24,6 +24,8 @@ const ClosedSection = props =>
 
 	      <div className="filter-button-text">FILTERS</div>
      {props.currentFilters.map(filter => <SimpleFilterButton icon={props.filters[filter].icon} /> )}
+
+     {props.currentFilters.length && <div onClick={props.clearFilters} className="filter-button-clear">Clear All</div>}
 </div>
 	    </div>
 	  </div>
@@ -104,6 +106,7 @@ class FilterBar extends Component {
 	    },
 	};
 	this.toggle = this.toggle.bind(this)
+	this.clearFilters = this.clearFilters.bind(this);
 	this.selectFilter = this.selectFilter.bind(this)
     }
     selectFilter(id) { // should work? see if you can understand later
@@ -115,6 +118,16 @@ class FilterBar extends Component {
 	    else {
 		prevState.currentFilters = difference(prevState.currentFilters,[id]);
 	    }
+	    return prevState;
+	})
+    }
+
+    clearFilters() {
+	this.setState((prevState, props) => {
+	    prevState.currentFilters.forEach(filter => {
+		prevState.filterData.filters.byId[filter].selected = false;
+	    });
+	    prevState.currentFilters = [];
 	    return prevState;
 	})
     }
@@ -154,7 +167,7 @@ class FilterBar extends Component {
       <div className="filter-bar-logo">Amanuensis</div>
     </div>
     <div className="filter-bar-container">
-		<ClosedSection currentFilters={this.state.currentFilters} filters={this.state.filterData.filters.byId} toggle={this.toggle} show={this.state.close} open={this.state.open} />
+		<ClosedSection clearFilters={this.clearFilters} currentFilters={this.state.currentFilters} filters={this.state.filterData.filters.byId} toggle={this.toggle} show={this.state.close} open={this.state.open} />
 		<OpenSection toggle={this.toggle} show={this.state.close} open={this.state.open} />
     </div>
   </div>

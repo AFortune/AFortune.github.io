@@ -76,7 +76,7 @@ body {
     justify-content:space-between;
     align-items:center;
     min-width:100px;
-    width: 60%;
+    /* width: 60%; */
 }
 .filter-bar-selection-area {
     margin-top:40px;
@@ -305,6 +305,19 @@ body {
     min-width: 174px;
     justify-content: space-around;
     align-items: center;
+}
+
+.filter-button-container .filter-circle-button{
+    margin: 0 5px;
+    box-shadow: 0 0 1px 1px #555;
+}
+
+.filter-button-clear {
+    color:#aaa;
+    font-size:12px;
+    font-family: 'Karla';
+    text-decoration:underline;
+    cursor:pointer;
 }
 
 .filter-bar-notify-text {
