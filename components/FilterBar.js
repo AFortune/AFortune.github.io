@@ -1,8 +1,7 @@
 import React, {Component} from 'react'
 import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 import './FilterBar.css'
-
-const showHider = (toggleValue, Component) => toggleValue ? Component : null;
+import {findIndex, propEq} from 'ramda'
 
 const FadeInTimeout = 800;
 const FadeOutTimeout = 800;
@@ -60,8 +59,30 @@ const OpenSection = props =>
 class FilterBar extends Component {
     constructor(props) {
 	super(props)
-	this.state = {filters:[], open:false, close:false}
+	this.state = {
+	    currentFilters:[],
+	    open:false,
+	    close:false ,
+	    filterData:{
+		section1:[
+		    {id:0,icon:'❌',selected:false},
+		    {id:1,icon:'❌',selected:false},
+		    {id:2,icon:'❌',selected:false},
+		],
+	    },
+	};
 	this.toggle = this.toggle.bind(this)
+    }
+
+    selectFilter(section, id) { // should work? see if you can understand later
+	const findIndexById = (id,data) => findIndex(propEq('id',id),data)
+	this.setState((prevState, props) => {
+	    const sectionData = prevState[section];
+	    const currVal = prevState[section][findIndexById(id,sectionData)].selected;
+	    prevState[section][findIndexById(id,sectionData)] = !currVal;
+	    return prevState;
+
+	})
     }
     toggle() {
 	if (!this.state.open) {
@@ -103,12 +124,41 @@ class FilterBar extends Component {
     </div>
   </div>
   <div className={`filter-bar-selection-area ${this.state.open ? "open": ""}`}>
+		<FilterBarFilterSection selectFilter={this.selectFilter}/>
+		<FilterBarFilterSection selectFilter={this.selectFilter}/>
+		<FilterBarFilterSection selectFilter={this.selectFilter}/>
   </div>
 </div>
 );
     }
 }
 
+const FilterBarFilterSection = props => 
+      <div className="filter-bar-filter-section">
+      <div className="filter-bar-filter-section-title">
+      {props.title || "LENSES"}
+</div>
+      <div className="filter-bar-filter-section-buttons">
+
+    <div className={`filter-circle-button-selector-container ${props.selected ? "selected-filter" :"" } `}>
+    <div className="filter-button-border-underlay">
+    </div>
+    <div onClick={props.selectFilter} className="filter-circle-button filter-circle-button-selector">
+    ❌
+</div>
+</div>
+
+
+
+
+
+	  <div className="filter-circle-button filter-circle-button-selector">❌</div>
+	  <div className="filter-circle-button filter-circle-button-selector">❌</div>
+</div>
+    <div  className="filter-bar-filter-section-text">
+    Lenses are really great. The are what let you see things and are the core of goggles.
+    </div>
+      </div>
 
 
 
