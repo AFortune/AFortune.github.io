@@ -1,10 +1,10 @@
 import React, {Component} from 'react'
 import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 import './FilterBar.css'
-import {findIndex, propEq} from 'ramda'
+import {findIndex, difference,propEq} from 'ramda'
 
-const FadeInTimeout = 800;
-const FadeOutTimeout = 800;
+const FadeInTimeout = 400;
+const FadeOutTimeout = 400;
 
 
 const ClosedSection = props =>
@@ -20,7 +20,11 @@ const ClosedSection = props =>
 	  <div className="filter-bar-filter-list">
 	    <div className="filter-button-container">
 	      <div onClick={props.toggle} className="filter-circle-button" >▼</div>
+     <div className="filter-list-area">
+
 	      <div className="filter-button-text">FILTERS</div>
+     {props.currentFilters.map(filter => <SimpleFilterButton icon={props.filters[filter].icon} /> )}
+</div>
 	    </div>
 	  </div>
 	</div>
@@ -54,7 +58,7 @@ const OpenSection = props =>
 	  </div>
        </div>}
     </CSSTransitionGroup>
-    </div> ;
+    </div>;
 
 class FilterBar extends Component {
     constructor(props) {
@@ -63,24 +67,55 @@ class FilterBar extends Component {
 	    currentFilters:[],
 	    open:false,
 	    close:false ,
-	    filterData:{
-		section1:[
-		    {id:0,icon:'❌',selected:false},
-		    {id:1,icon:'❌',selected:false},
-		    {id:2,icon:'❌',selected:false},
-		],
+	    filterData: {
+		sections: {
+		    byId:  {
+			section0 : {
+			    title:'Lenses',
+			    text: "Lenses are the core of everything we do. They stay clear so you can ski.",
+			    filters:['filter0','filter1','filter2']
+			},
+			section1 : {
+			    title:'Anti-fog',
+			    text: "Anti-fog to keep you vision always sharp and clear.",
+			    filters:['filter3','filter4','filter5']
+			},
+			section2 : {
+			    title:'Glasses',
+			    text: "Our goggles can handle all but the most extreme prescriptions.",
+			    filters:['filter6','filter7']
+			},
+		    },
+		    allIds:["section0","section1","section2"]
+		},
+		filters: {
+		    byId : {
+			filter0:{id:"filter0",icon:'🌢',selected:false},
+			filter1:{id:"filter1",icon:'✻',selected:false},
+			filter2:{id:"filter2",icon:'⛵',selected:false},
+			filter3:{id:"filter3",icon:'🌢',selected:false},
+			filter4:{id:"filter4",icon:'✻',selected:false},
+			filter5:{id:"filter5",icon:'❌',selected:false},
+			filter6:{id:"filter6",icon:'🌢',selected:false},
+			filter7:{id:"filter7",icon:'✻',selected:false},
+		    },
+		    allIds:['filter0','filter1','filter2','filter3','filter4','filter5','filter6','filter7']
+		}
 	    },
 	};
 	this.toggle = this.toggle.bind(this)
+	this.selectFilter = this.selectFilter.bind(this)
     }
-    selectFilter(section, id) { // should work? see if you can understand later
-	const findIndexById = (id,data) => findIndex(propEq('id',id),data)
+    selectFilter(id) { // should work? see if you can understand later
 	this.setState((prevState, props) => {
-	    const sectionData = prevState[section];
-	    const currVal = prevState[section][findIndexById(id,sectionData)].selected;
-	    prevState[section][findIndexById(id,sectionData)] = !currVal;
+	    prevState.filterData.filters.byId[id].selected = !prevState.filterData.filters.byId[id].selected;
+	    if(prevState.filterData.filters.byId[id].selected) {
+		prevState.currentFilters = prevState.currentFilters.concat([id]);
+	    }
+	    else {
+		prevState.currentFilters = difference(prevState.currentFilters,[id]);
+	    }
 	    return prevState;
-
 	})
     }
 
@@ -95,7 +130,7 @@ class FilterBar extends Component {
 		    prevState.close = !prevState.close
 		    return prevState
 		})
-	    },801)
+	    },401)
 	}
 	else {
 	    this.setState((prevState,props) => {
@@ -107,7 +142,7 @@ class FilterBar extends Component {
 		    prevState.open = !prevState.open
 		    return prevState
 		})
-	    },801)
+	    },401)
 	}
     }
 
@@ -119,15 +154,20 @@ class FilterBar extends Component {
       <div className="filter-bar-logo">Amanuensis</div>
     </div>
     <div className="filter-bar-container">
-		<ClosedSection toggle={this.toggle} show={this.state.close} open={this.state.open} />
+		<ClosedSection currentFilters={this.state.currentFilters} filters={this.state.filterData.filters.byId} toggle={this.toggle} show={this.state.close} open={this.state.open} />
 		<OpenSection toggle={this.toggle} show={this.state.close} open={this.state.open} />
     </div>
   </div>
   <div className={`filter-bar-selection-area ${this.state.open ? "open": ""}`}>
-		<FilterBarFilterSection selectFilter={this.selectFilter}/>
-		<FilterBarFilterSection selectFilter={this.selectFilter}/>
-		<FilterBarFilterSection selectFilter={this.selectFilter}/>
+  <div className="filter-bar-selection-content ">
+		<FilterBarFilterSection sectionData={this.state.filterData.sections.byId.section0} selectFilter={this.selectFilter} filters={this.state.filterData.filters}/>
+		<FilterBarFilterSection sectionData={this.state.filterData.sections.byId.section1} selectFilter={this.selectFilter} filters={this.state.filterData.filters}/>
+		<FilterBarFilterSection sectionData={this.state.filterData.sections.byId.section2} selectFilter={this.selectFilter} filters={this.state.filterData.filters}/>
   </div>
+
+		<div onClick={this.toggle} className={`filter-submit-button ${this.state.currentFilters.length > 0? "active": ""}` }>Filter</div>
+  </div>
+	
 </div>
 );
     }
@@ -136,30 +176,30 @@ class FilterBar extends Component {
 const FilterBarFilterSection = props => 
       <div className="filter-bar-filter-section">
       <div className="filter-bar-filter-section-title">
-      {props.title || "LENSES"}
+      {props.sectionData.title || "LENSES"}
 </div>
       <div className="filter-bar-filter-section-buttons">
+    {props.sectionData.filters.map(filter => <FancyFilterButton selectFilter={() => props.selectFilter(filter)} icon={props.filters.byId[filter].icon} selected={props.filters.byId[filter].selected}/>)}
 
+</div>
+    <div className="filter-bar-filter-section-text">
+    {props.sectionData.text}
+    </div>
+    </div>;
+
+const FancyFilterButton = props =>
     <div className={`filter-circle-button-selector-container ${props.selected ? "selected-filter" :"" } `}>
     <div className="filter-button-border-underlay">
     </div>
     <div onClick={props.selectFilter} className="filter-circle-button filter-circle-button-selector">
-    ❌
+    {props.icon}
 </div>
-</div>
+    </div>;
 
-
-
-
-
-	  <div className="filter-circle-button filter-circle-button-selector">❌</div>
-	  <div className="filter-circle-button filter-circle-button-selector">❌</div>
-</div>
-    <div  className="filter-bar-filter-section-text">
-    Lenses are really great. The are what let you see things and are the core of goggles.
-    </div>
-      </div>
-
+const SimpleFilterButton = props =>
+    <div className="filter-circle-button ">
+    {props.icon}
+</div>;
 
 
 
@@ -167,6 +207,6 @@ const FilterBarFilterSection = props =>
 export default FilterBar;
 
       // <div className="filter-button-tag filter-circle-button"></div>
-      // <div className="filter-button-tag filter-circle-button"></div>
+      // <div lassName="filter-button-tag filter-circle-button"></div>
       // <div className="filter-button-tag filter-circle-button"></div>
       // <div className="filter-button-tag filter-clear">clear all</div>

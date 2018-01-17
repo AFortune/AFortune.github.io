@@ -76,16 +76,26 @@ body {
     justify-content:space-between;
     align-items:center;
     min-width:100px;
+    width: 60%;
 }
 .filter-bar-selection-area {
-    margin-top:80px;
+    margin-top:40px;
     background-color:black;
     width:100%;
     height:0;
     overflow:hidden;
     transition:height 1s;
     display:flex;
+    align-items:center;
+    justify-content:space-around;
+    flex-flow:column;
+}
+.filter-bar-selection-content {
+    width:100%;
+    overflow:hidden;
+    display:flex;
     align-items:flex-start;
+    justify-content:space-around;
 }
 
 .filter-bar-selection-area.open{
@@ -98,6 +108,7 @@ body {
     flex-flow:column;
     justify-content:center;
     padding-top:25px;
+    max-width:220px;
 }
 .filter-bar-filter-section-title{
     color:white;
@@ -112,9 +123,11 @@ body {
     display:flex;
     justify-content:space-around;
     margin-bottom:10px;
+    padding:0 20px;
     /* width:80%; */
 }
 .filter-circle-button-selector-container {
+    margin:10px;
     position:relative;
     display:flex;
     justify-content:center;
@@ -214,6 +227,21 @@ body {
     font-family:'Karla';
 }
 
+.filter-submit-button {
+    color:#888;
+    box-shadow: 0 0 1px 1px #888;
+    border-radius:20px;
+    padding:5px 20px;
+}
+.filter-submit-button.active {
+    color:white;
+    box-shadow: 0 0 1px 1px #00BFA5;
+    cursor:pointer;
+}
+.filter-submit-button.active:hover {
+    background-color:#00BFA5;
+}
+
 .filter-bar-selection-title-small {
     font-size:13px;
     font-family:'Karla';
@@ -272,6 +300,12 @@ body {
     color:#eeeeee;
     font-size:14px;
 }
+.filter-list-area {
+    display: flex;
+    min-width: 174px;
+    justify-content: space-around;
+    align-items: center;
+}
 
 .filter-bar-notify-text {
     color: #eee;
@@ -281,29 +315,29 @@ body {
 
 .filter-bar-fade-enter .filter-bar-open-section {
     opacity:0;
-    transition: opacity 800ms ease-in;
+    transition: opacity 400ms ease-in;
 }
 
 .filter-bar-fade-enter.filter-bar-fade-enter-active .filter-bar-open-section {
     opacity:1;
-    transition: opacity 800ms ease-in;
+    transition: opacity 400ms ease-in;
 }
 
 .filter-bar-fade-leave .filter-bar-open-section{
 
     opacity:0;
-    transition: opacity 800ms ease-in;
+    transition: opacity 400ms ease-in;
 }
 
 .filter-bar-fade-leave.filter-bar-fade-enter-leave-active .filter-bar-open-section{
 
     opacity:0;
-    transition: opacity 800ms ease-in;
+    transition: opacity 400ms ease-in;
 }
 
 .filter-bar-fade-enter .filter-bar-closed-section {
     opacity:0 ;
-    transition: opacity 800ms ease-in;
+    transition: opacity 400ms ease-in;
 }
 
 .filter-bar-fade-enter.filter-bar-fade-enter-active .filter-bar-closed-section {
@@ -312,10 +346,10 @@ body {
 
 .filter-bar-fade-leave .filter-bar-closed-section{
     opacity:0 ;
-    transition: opacity 800ms ease-in;
+    transition: opacity 400ms ease-in;
 }
 
 .filter-bar-fade-leave.filter-bar-fade-enter-leave-active .filter-bar-closed-section{
     opacity:0 ;
-    transition: opacity 800ms ease-in;
+    transition: opacity 400ms ease-in;
 }
