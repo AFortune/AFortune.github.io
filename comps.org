@@ -1,0 +1,40 @@
+* Nicely Animated Image load.
+So let's think what we have.
+I have the up and down movement. And I have 
+the in and out movement. It is not super modular
+at the moment because it relies on a weird mix of the 
+two animations. However, I can skirt this issue for now
+but just rolling these two elements into one component for 
+now. Let's do that and move on. One tricky thing though.
+The component will actually need to be the gallery itself
+to contain the animations. Okay so, in that case I move
+the animations into the gallery and then I just worry about
+the images themselves and the overlay itself. Okay.
+That should do for now. We will move the css trantision
+into the gallery. And we will then style the images and overlays.
+
+
+Okay the plan worked. Now I wonder about the text behind the image.
+
+
+
+Alright so now we have that. Let's add some filter buttons to the
+gallery and then we can play with that a bit.
+http://goggles.wedze.com/winter-2017-2018/assets/img/products/goggles/bones-500/bones-500-blue-bad-weather.png
+
+
+
+Last things for this are the borders
+and the hover issue.
+
+After that we can launch onto the filter bar.
+
+
+
+* Filter bar.
+  Two chalenges here. Make it and make it modular.
+
+** For next time.
+   Make the filter icons fade in and out when cleared.
+   Then fix the positioning of the top bar.
+   Then get the images to filter.

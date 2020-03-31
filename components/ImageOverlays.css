@@ -1,0 +1,154 @@
+/* Top Overlay */
+@import url('https://fonts.googleapis.com/css?family=Karla');
+
+.photo-title-container {
+    display:flex;
+    justify-content:center;
+}
+.photo-title-text-area {
+}
+.photo-title-title {
+    font-family: 'Karla', sans-serif;
+    font-size:40px;
+    font-weight:500;
+}
+.photo-title-sub-title {
+    font-family: 'Karla', sans-serif;
+    font-size:10px;
+    font-weight:500;
+    display:flex;
+    justify-content:space-between;
+}
+.bold {
+    font-weight:bold;
+}
+.photo-title-sub-title-line {
+    border-bottom: 3px solid black;
+    width:20px;
+    transition: width .5s ease-in;
+}
+.photo-title-container:hover .photo-title-sub-title-line {
+    border-bottom: 3px solid black;
+    width:80px;
+}
+/* Bottom Overlay */
+.photo-bottom-container {
+    display:flex;
+    justify-content:space-around;
+    /* border-bottom: 1px solid #EEEEEE; */
+}
+.tile-image {
+    display:block;
+    width:300px;
+    transition: width .1s ease-in;
+}
+
+.tile-image-background {
+    position:absolute;
+    z-index:-1;
+    font-family: 'Karla';
+    font-weight:600;
+    font-size:100px;
+    bottom:34%;
+    color:#EEEEEE;
+    transition: color 1s ease-in;
+}
+
+.tile-image-container:hover .tile-image-background {
+    color:#B2EBF2;
+}
+
+.tile-image-container:hover .tile-image {
+    width:310px;
+}
+.tile-image-container {
+    position:relative;
+    /* margin: 10px 0; */
+    display:flex;
+    width:350px;
+    height:120px;
+    justify-content:center;
+    align-items:center;
+}
+/* Consider moving these into the gallery */
+.left-column {
+}
+.right-column {
+}
+.left-column .complete-image-tile {
+    border-bottom: 1px solid #EEEEEE;
+    border-right: 0.5px solid #EEEEEE;
+    /* border: 1px solid #EEEEEE; */
+    /* border: 1px solid #EEEEEE; */
+}
+.right-column .complete-image-tile {
+    border-bottom: 1px solid #EEEEEE;
+    border-left: 0.5px solid #EEEEEE;
+    /* border: 1px solid #EEEEEE; */
+    /* border: 1px solid #EEEEEE; */
+}
+.circle-button {
+    cursor:pointer;
+    width:30px;
+    height:30px;
+    border-radius:15px;
+    border: 1px solid #EEEEEE;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:#757575;
+    font-size:14px;
+}
+
+.photo-bottom-button-container {
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+    width: 120px;
+    height: 50px;
+}
+.photo-bottom-price-section {
+    position:relative;
+    height:45px;
+    
+}
+.photo-bottom-price-container {
+    font-family: 'Karla', sans-serif;
+    font-size:20px;
+    text-align:center;
+    width:70px;
+    padding-top:10px;
+    /* padding-bottom:5px; */
+    /* margin-bottom:5px; */
+    background-color:#00BFA5;
+    color:white;
+    height:31px;
+    cursor:pointer;
+
+}
+
+.photo-bottom-price-overlay {
+    cursor:pointer;
+    position:absolute;
+    overflow:hidden;
+    background-color:white;
+    padding-top:10px;
+    z-index:1;
+    top:0;
+    font-family: 'Karla', sans-serif;
+    font-size:20px;
+    text-align:center;
+    width:70px;
+    height:28px;
+    transition: height 1.5s; 
+}
+
+
+.complete-image-tile:hover .photo-bottom-price-overlay {
+    height:0px;
+}
+
+.complete-image-tile:hover .photo-title-sub-title-line {
+    border-bottom: 3px solid black;
+    width:80px;
+}

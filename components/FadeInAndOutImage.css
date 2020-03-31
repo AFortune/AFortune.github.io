@@ -1,0 +1,22 @@
+.example-enter {
+  opacity: 0.01;
+  transform:scale(0.2)
+}
+
+.example-enter.example-enter-active {
+  opacity: 1;
+  transform:scale(1);
+  transition: opacity 500ms ease-in, transform 100ms ease-in;
+}
+
+.example-leave {
+  opacity: 1;
+  transform:scale(1);
+}
+
+.example-leave.example-leave-active {
+  opacity: 0.01;
+  transform:scale(0.2);
+  transition: opacity 100ms ease-in,  transform 100ms ease-in;
+}
+
